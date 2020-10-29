@@ -25,10 +25,10 @@
 
     <div class="button">
     {{-- http://localhost/tasksへ --}}
-    <a href="/tasks"><button>一覧へ戻る</button></a>
+    <button onclick="location.href='/tasks'">一覧へ戻る</button>
     
-    {{-- http://localhost/{id}へ --}}
-    <a href="/tasks/{{ $task->id }}/edit"><button>編集する</button></a>
+    {{-- http://localhost/tasks/{id}/editへ --}}
+    <button onclick="location.href='/tasks/{{ $task->id }}/edit'">編集する</button>
 
     
     <form action="/tasks/{{ $task->id }}" method="post">
@@ -36,7 +36,7 @@
         @method('DELETE')
         {{-- confirmでYESかNOかみたいなのが出る。 --}}
         {{-- OKだった場合false（とばない？いいえ！）、NOだった場合True（とばない？はい！） --}}
-        <a type="submit" onclick="if(!confirm('削除しますか？')){return false};"><button>削除する</button></a>
+        <button type="submit" onclick="if(!confirm('削除しますか？')){return false};">削除する</button>
     </form>
     <div>
 </body>
