@@ -49,7 +49,7 @@
     <div class="button">
         <input type="submit" value="更新">
         {{-- http://localhost/tasks/{id}へ --}}
-        <button onclick="location.href='/tasks/{{ $task->id }}'">詳細に戻る</button>
+        <button type="button" onclick="location.href='/tasks/{{ $task->id }}'">詳細に戻る</button>
     </div>
 </form>
 </body>

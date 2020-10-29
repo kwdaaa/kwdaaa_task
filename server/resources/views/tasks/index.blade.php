@@ -26,7 +26,7 @@
         @method('DELETE')
         {{-- confirmでYESかNOかみたいなのが出る。 --}}
         {{-- OKだった場合false（とばない？いいえ！）、NOだった場合True（とばない？はい！） --}}
-        <button type="submit" onclick="if(!confirm('削除しますか？')){return false};">削除する</button>
+        <input type="submit" value="削除する" onclick="if(!confirm('削除しますか？')){return false};">
     </form>
 @endforeach
 
