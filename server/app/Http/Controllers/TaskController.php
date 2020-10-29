@@ -43,6 +43,9 @@ class TaskController extends Controller
         // $request->bodyに入ってきた値を$task->bodyに入れ直す。
         $task->body = $request->body;
 
+        // taskのtimestampsは設定されてないからfalse
+        $task->timestamps = false;
+
         // インスタンスに値を設定して保存
         $task->save();
 

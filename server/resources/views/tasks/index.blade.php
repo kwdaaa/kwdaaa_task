@@ -15,8 +15,12 @@
 @endif
 
 @foreach ($tasks as $task)
-    <!-- // リンク先をidで取得し名前で出力 -->
-    <p><a href="/tasks/{{ $task->id }}">{{ $task->title }}</a></p>
+    <form action="/tasks" method="post">
+        @csrf
+        <!-- // リンク先をidで取得し名前で出力 -->
+        <p><a href="/tasks/{{ $task->id }}">{{ $task->title }}</a></p>
+    </form>
+
     <form action="/tasks/{{ $task->id }}" method="post">
         @csrf
         @method('DELETE')
@@ -33,7 +37,6 @@
 <form action="/tasks" method="post">
     {{-- @csrfこれがないとうまくデータの保存ができない --}}
     @csrf
-
     {{-- {{ old('title') }}を書くことで、エラーが起きたときに、書いた値が表示される。 --}}
     <p>
         タイトル<br>
@@ -43,7 +46,6 @@
         内容<br>
         <textarea  type="text" name="body">{{ old('body') }}</textarea>
     </p>
-
     <input type="submit" value="Create Task">
 </form>
 

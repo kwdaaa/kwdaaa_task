@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    {{-- link:css + tab で雛形表示 --}}
+    {{-- assetを書くことで、publicフォルダの中身ですよという指示になる。 --}}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    
+</head>
+
+<body>
 <h1>投稿タスク編集</h1>
 
 {{-- エラーを表示するためのコード --}}
@@ -14,22 +29,29 @@
     </div>
 @endif
 
-<!--更新先はarticlesのidにしないと増える php artisan rote:listで確認①-->
-<form action="/articles/{{ $article->id }}" method="post">
+<!--更新先はtasksのidにしないと増える php artisan rote:listで確認①-->
+<form action="/tasks/{{ $task->id }}" method="post">
     @csrf
     <!-- resourceの場合PUTを指定してあげないとエラーが起きる php artisan rote:listで確認② -->
     @method('PUT')
     <!-- idはそのまま -->
-    <input type="hidden" name="id" value="{{ $article->id }}">
+    <input type="hidden" name="id" value="{{ $task->id }}">
     
     <p>
         タイトル<br>
-        <input type="text" name="title" value="{{ $article->title }}">
+        <input type="text" name="title" value="{{ $task->title }}">
     </p>
     <p>
         内容<br>
-        <textarea  type="text" name="body">{{ $article->body }}</textarea>
+        <textarea  type="text" name="body">{{ $task->body }}</textarea>
     </p>
 
-    <input type="submit" value="更新">
+    <div class="button">
+        <input type="submit" value="更新">
+    </div>
 </form>
+    <div class="button">
+        <a href="/tasks/{{ $task->id }}"><button>詳細に戻る</button></a>
+    </div>
+</body>
+</html>
