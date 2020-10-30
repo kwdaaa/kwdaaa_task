@@ -15,11 +15,8 @@
 @endif
 
 @foreach ($tasks as $task)
-    <form action="/tasks" method="post">
-        @csrf
-        <!-- // リンク先をidで取得し名前で出力 -->
-        <p><a href="/tasks/{{ $task->id }}">{{ $task->title }}</a></p>
-    </form>
+    
+    <p><a href="/tasks/{{ $task->id }}">{{ $task->title }}</a></p>
 
     <form action="/tasks/{{ $task->id }}" method="post">
         @csrf

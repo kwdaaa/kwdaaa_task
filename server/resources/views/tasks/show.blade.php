@@ -24,20 +24,20 @@
     </p>
 
     <div class="button">
-    {{-- http://localhost/tasksへ --}}
-    <button onclick="location.href='/tasks'">一覧へ戻る</button>
+        {{-- http://localhost/tasksへ --}}
+        <button onclick="location.href='/tasks'">一覧へ戻る</button>
     
-    {{-- http://localhost/tasks/{id}/editへ --}}
-    <button onclick="location.href='/tasks/{{ $task->id }}/edit'">編集する</button>
+        {{-- http://localhost/tasks/{id}/editへ --}}
+        <button onclick="location.href='/tasks/{{ $task->id }}/edit'">編集する</button>
 
     
-    <form action="/tasks/{{ $task->id }}" method="post">
-        @csrf
-        @method('DELETE')
-        {{-- confirmでYESかNOかみたいなのが出る。 --}}
-        {{-- OKだった場合false（とばない？いいえ！）、NOだった場合True（とばない？はい！） --}}
-        <input type="submit" value="削除する" onclick="if(!confirm('削除しますか？')){return false};">
-    </form>
+        <form action="/tasks/{{ $task->id }}" method="post">
+            @csrf
+            @method('DELETE')
+            {{-- confirmでYESかNOかみたいなのが出る。 --}}
+            {{-- OKだった場合false（とばない？いいえ！）、NOだった場合True（とばない？はい！） --}}
+            <input type="submit" value="削除する" onclick="if(!confirm('削除しますか？')){return false};">
+        </form>
     <div>
 </body>
 </html>
