@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('tasks', 'TaskController')->except([
+    'create'
+]);
+
+// リソースを使用しない場合
+// Route::get('/articles', 'ArticleController@index');
+// Route::get('/articles/create', 'ArticleController@create');
+// Route::post('/articles', 'ArticleController@store');
+// Route::get('/articles/{id}', 'ArticleController@show');
+// Route::get('/articles/{id}/edit', 'ArticleController@edit');
+// Route::patch('/articles/{id}', 'ArticleController@update');
+// Route::delete('/articles/{id}', 'ArticleController@destroy');
